@@ -17,12 +17,13 @@ The core properties available in the root object.
 | [latitude](#core-property-latitude) | `number` \| `null` | Required | Writable | The latitude the thing is installed at. |
 | [location](#core-property-location) | `string` \| `null` | Required | Writable | The name of the location the thing is installed at. |
 | [locationType](#core-property-locationType) | `string` \| `null` | Required | Writable | The type of location the thing is installed at. |
-| [longitude](#core-property-longitude) | `number` \| `null` | Optional | Writable | The longitude the thing is installed at. |
+| [longitude](#core-property-longitude) | `number` \| `null` | Required | Writable | The longitude the thing is installed at. |
 | [monitored](#core-property-monitored) | `string` \| `null` | Required | Writable | The identifier of the monitored object. |
 | [monitoredModel](#core-property-monitoredmodel) | `string` \| `null` | Required | Writable | The commercial model name of the monitored object. |
 | [monitoredType](#core-property-monitoredtype) | `string` \| `null` | Required | Writable | The type of the monitored object. |
 | [mqtt](#core-property-mqtt) | `object` [MQTT](#mqtt-object) | Optional | Read-only | MQTT related configuration properties. |
 | [name](#core-property-name) | `string` \| `null` | Required | Writable | A name identifying the thing inside an organization. |
+| [organization](#core-property-organization) | `string` \| `null` | Required | Writable | The name of the organization the thing is part of. |
 | [project](#core-property-project) | `string` \| `null` | Required | Writable | The name of the project the thing is part of. |
 | [sensors](#core-property-sensors) | `array` of `object` [Sensor](#sensor-object) | Optional | Read-only | A list of installed sensors. |
 | [site](#core-property-site) | `string` \| `null` | Required | Writable | The name of the site the thing is installed at. |
@@ -111,6 +112,17 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
+### Core property `longitude`
+
+The longitude the thing is installed at.
+
+Type: `number` | `null`
+Existence: Required
+Mutability: Writable
+Constraints:
+
+- Must have a value between -180 and 180
+
 ### Core property `monitored`
 
 The identifier of the monitored object.
@@ -162,6 +174,19 @@ Constraints:
 ### Core property `name`
 
 A name identifying the thing inside an organization.
+
+Type: `string` | `null`
+Existence: Required
+Mutability: Writable
+Constraints:
+
+- Must have a length of at least 1 characters
+- Must have a length of at most 200 characters
+
+
+### Core property `organization`
+
+The name of the organization the thing is part of.
 
 Type: `string` | `null`
 Existence: Required
@@ -453,7 +478,7 @@ Configuration properties for a sensor.
 |-|-|-|-|-|
 executed. |
 | [model](#sensor-property-model) | `string` | Required | Read-only | The commercial model name of the sensor. |
-| [slot](#sensor-property-slot) | `integer` | Required | Read-only | The number of the slot the sensor is connected to. |
+| [port](#sensor-property-port) | `integer` | Required | Read-only | The number of the port the sensor is connected to. |
 | [type](#sensor-property-type) | `string` | Required | Read-only | The type of the sensor. |
 
 ### Sensor property `model`
@@ -468,9 +493,9 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Sensor property `slot`
+### Sensor property `port`
 
-The number of the slot the sensor is connected to.
+The number of the port the sensor is connected to.
 
 Type: `integer`
 Existence: Required
