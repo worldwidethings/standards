@@ -521,7 +521,7 @@ Contains system wide settings.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
-| [manufacturer](#core-property-manufacturer) | `string` | Required | Read-only | The name of the WWT device manufacturer. |
+| [vendor](#core-property-vendor) | `string` | Required | Read-only | The name of the WWT device vendor. |
 | [modelName](#core-property-modelname) | `string` | Required | Read-only | The model name of the WWT device. |
 | [modelNumber](#core-property-modelnumber) | `string` | Required | Read-only | The model number of the WWT device. |
 | [serialNumber](#core-property-serialnumber) | `string` | Required | Read-only | The serial number of the WWT device. |
@@ -529,9 +529,9 @@ Contains system wide settings.
 | [firmware](#core-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
 | [firmwareVersion](#core-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
 
-### System property `manufacturer`
+### System property `vendor`
 
-The name of the WWT device manufacturer.
+The name of the WWT device vendor.
 
 Type: `string`  
 Existence: Required  
