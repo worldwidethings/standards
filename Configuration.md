@@ -521,61 +521,13 @@ Contains system wide settings.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
-| [vendor](#system-property-vendor) | `string` | Required | Read-only | The name of the WWT device vendor. |
-| [modelName](#system-property-modelname) | `string` | Required | Read-only | The model name of the WWT device. |
-| [modelNumber](#system-property-modelnumber) | `string` | Required | Read-only | The model number of the WWT device. |
-| [serialNumber](#system-property-serialnumber) | `string` | Required | Read-only | The serial number of the WWT device. |
 | [country](#system-property-country) | `string` | Required | Writable | The ISO 3361-1 alpha-2 country code the thing is operated in. |
 | [firmware](#system-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
 | [firmwareVersion](#system-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
-
-### System property `vendor`
-
-The name of the WWT device vendor.
-
-Type: `string`  
-Existence: Required  
-Mutability: Read-only  
-Constraints:  
-
-- Must have a length of at least 1 character
-- Must have a length of at most 200 characters
-
-### System property `modelName`
-
- The model name of the WWT device.
-
-Type: `string`  
-Existence: Required  
-Mutability: Read-only  
-Constraints:  
-
-- Must have a length of at least 1 character
-- Must have a length of at most 200 characters
-
-### System property `modelNumber`
-
-The model number of the WWT device.
-
-Type: `string`  
-Existence: Required  
-Mutability: Read-only  
-Constraints:  
-
-- Must have a length of at least 1 character
-- Must have a length of at most 200 characters
-
-### System property `serialNumber`
-
-The serial number of the WWT device.
-
-Type: `string`  
-Existence: Required  
-Mutability: Read-only  
-Constraints:  
-
-- Must have a length of at least 1 character
-- Must have a length of at most 200 characters
+| [modelName](#system-property-modelname) | `string` | Required | Read-only | The model name of the WWT device. |
+| [modelNumber](#system-property-modelnumber) | `string` | Required | Read-only | The model number of the WWT device. |
+| [serialNumber](#system-property-serialnumber) | `string` | Required | Read-only | The serial number of the WWT device. |
+| [vendor](#system-property-vendor) | `string` | Required | Read-only | The name of the WWT device vendor. |
 
 ### System property `country`
 
@@ -613,6 +565,54 @@ Constraints:
 - Must adhere to the [semantic versioning](https://semver.org)
 - Must have a length of at least 5 characters
 - Must have a length of at most 20 characters
+
+### System property `modelName`
+
+ The model name of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `modelNumber`
+
+The model number of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `serialNumber`
+
+The serial number of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `vendor`
+
+The name of the WWT device vendor.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
 
 ## WiFi object
 
