@@ -521,7 +521,7 @@ Contains system wide settings.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
-| [country](#system-property-country) | `string` | Required | Writable | The ISO 3361-1 alpha-2 country code the thing is operated in. |
+| [country](#system-property-country) | `string` | Required | Writable | The ISO 3166-1 alpha-2 country code the thing is operated in. |
 | [firmware](#system-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
 | [firmwareVersion](#system-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
 | [modelName](#system-property-modelname) | `string` | Required | Read-only | The model name of the WWT device. |
@@ -531,7 +531,7 @@ Contains system wide settings.
 
 ### System property `country`
 
-The ISO 3361-1 alpha-2 country code the thing is operated in.  
+The ISO 3166-1 alpha-2 country code the thing is operated in.  
 
 Type: `string`  
 Existence: Required  
@@ -539,7 +539,7 @@ Mutability: Writable
 Constraints:  
 
 - Must consist of two letters
-- Must be one of the [ISO 3361-1 alpha-2 country code](https://www.iso.org/obp/ui)
+- Must be one of the [ISO 3166-1 alpha-2 country code](https://www.iso.org/obp/ui#iso:std:iso:3166:-1:ed-4:v1:en) / [ISO 3166-1 @ wikipedia.org](https://en.wikipedia.org/wiki/ISO_3166-1)
 
 ### System property `firmware`
 
