@@ -8,27 +8,27 @@ The type of each property is defined in regard to the [JSON Schema](https://json
 
 The core properties available in the root object.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [ais](#core-property-ais) | `array` of `object` [AI](#ai-object) | Optional | Read-only | A list of installed AI's. |
-| [bluetooth](#core-property-bluetooth) | `object` [Bluetooth](#bluetooth-object) | Optional | Read-only | Bluetooth related configuration properties. |
-| [ethernet](#core-property-ethernet) | `object` [Ethernet](#ethernet-object) | Optional | Read-only | Ethernet related configuration properties. |
-| [id](#core-property-id) | `string` | Required | Read-only | The globally unique id of the thing. |
-| [latitude](#core-property-latitude) | `number` \| `null` | Required | Writable | The latitude the thing is installed at. |
-| [location](#core-property-location) | `string` \| `null` | Required | Writable | The name of the location the thing is installed at. |
-| [locationType](#core-property-locationType) | `string` \| `null` | Required | Writable | The type of location the thing is installed at. |
-| [longitude](#core-property-longitude) | `number` \| `null` | Required | Writable | The longitude the thing is installed at. |
-| [monitored](#core-property-monitored) | `string` \| `null` | Required | Writable | The identifier of the monitored object. |
-| [monitoredModel](#core-property-monitoredmodel) | `string` \| `null` | Required | Writable | The commercial model name of the monitored object. |
-| [monitoredType](#core-property-monitoredtype) | `string` \| `null` | Required | Writable | The type of the monitored object. |
-| [mqtt](#core-property-mqtt) | `object` [MQTT](#mqtt-object) | Optional | Read-only | MQTT related configuration properties. |
-| [name](#core-property-name) | `string` \| `null` | Required | Writable | A name identifying the thing inside an organization. |
-| [organization](#core-property-organization) | `string` \| `null` | Required | Writable | The name of the organization the thing is part of. |
-| [project](#core-property-project) | `string` \| `null` | Required | Writable | The name of the project the thing is part of. |
-| [sensors](#core-property-sensors) | `array` of `object` [Sensor](#sensor-object) | Optional | Read-only | A list of installed sensors. |
-| [site](#core-property-site) | `string` \| `null` | Required | Writable | The name of the site the thing is installed at. |
-| [system](#core-property-system) | `object` [System](#system-object) | Required | Read-only | Contains system wide settings. |
-| [wifi](#core-property-wifi) | `object` [WiFi](#wifi-object) | Optional | Read-only | WiFi related configuration properties. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [ais](#core-property-ais) | `array` of `object` [AI](#ai-object) | | | Optional | Read-only | A list of installed AI's. |
+| [bluetooth](#core-property-bluetooth) | `object` [Bluetooth](#bluetooth-object) | | | Optional | Read-only | Bluetooth related configuration properties. |
+| [ethernet](#core-property-ethernet) | `object` [Ethernet](#ethernet-object) | | | Optional | Read-only | Ethernet related configuration properties. |
+| [id](#core-property-id) | `string` | 5 | 5 | Required | Read-only | The globally unique id of the thing. |
+| [latitude](#core-property-latitude) | `number` \| `null` | -90.0 | 90.0 | Required | Writable | The latitude the thing is installed at. |
+| [location](#core-property-location) | `string` \| `null` | 1 | 200 | Required | Writable | The name of the location the thing is installed at. |
+| [locationType](#core-property-locationType) | `string` \| `null` | 1 | 200 | Required | Writable | The type of location the thing is installed at. |
+| [longitude](#core-property-longitude) | `number` \| `null` | -180.0 | 180.0 | Required | Writable | The longitude the thing is installed at. |
+| [monitored](#core-property-monitored) | `string` \| `null` | 1 | 200 | Required | Writable | The identifier of the monitored object. |
+| [monitoredModel](#core-property-monitoredmodel) | `string` \| `null` | 1 | 200 | Required | Writable | The commercial model name of the monitored object. |
+| [monitoredType](#core-property-monitoredtype) | `string` \| `null` | 1 | 200 | Required | Writable | The type of the monitored object. |
+| [mqtt](#core-property-mqtt) | `object` [MQTT](#mqtt-object) | | | Optional | Read-only | MQTT related configuration properties. |
+| [name](#core-property-name) | `string` \| `null` | 1 | 200 | Required | Writable | A name identifying the thing inside an organization. |
+| [organization](#core-property-organization) | `string` \| `null` | 1 | 200 | Required | Writable | The name of the organization the thing is part of. |
+| [project](#core-property-project) | `string` \| `null` | 1 | 200 | Required | Writable | The name of the project the thing is part of. |
+| [sensors](#core-property-sensors) | `array` of `object` [Sensor](#sensor-object) | | | Optional | Read-only | A list of installed sensors. |
+| [site](#core-property-site) | `string` \| `null` | 1 | 200 | Required | Writable | The name of the site the thing is installed at. |
+| [system](#core-property-system) | `object` [System](#system-object) | | | Required | Read-only | Contains system wide settings. |
+| [wifi](#core-property-wifi) | `object` [WiFi](#wifi-object) | | | Optional | Read-only | WiFi related configuration properties. |
 
 ### Core property `ais`
 
@@ -86,7 +86,7 @@ Existence: Required
 Mutability: Writable  
 Constraints:  
 
-- Must have a value between -90 and 90
+- Must have a value between -90.0 and 90.0
 
 ### Core property `location`
 
@@ -121,7 +121,7 @@ Existence: Required
 Mutability: Writable  
 Constraints:  
 
-- Must have a value between -180 and 180
+- Must have a value between -180.0 and 180.0
 
 ### Core property `monitored`
 
@@ -255,12 +255,12 @@ Constraints:
 
 Configuration properties for an AI.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [model](#ai-property-model) | `string` | Required | Read-only | The commercial model name of the AI. |
-| [slot](#ai-property-slot) | `integer` | Required | Read-only | The slot the AI is installed in. |
-| [training](#ai-property-training) | `integer` | Required | Read-only | A number which denotes a series of cohesive AI trainings. |
-| [version](#ai-property-version) | `integer` | Required | Read-only | An AI training version number which starts at 1 and is increased by 1 each time a new training of that AI was done. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [model](#ai-property-model) | `string` | 1 | 200 | Required | Read-only | The commercial model name of the AI. |
+| [slot](#ai-property-slot) | `integer` | 0 | UINT8_MAX | Required | Read-only | The slot the AI is installed in. |
+| [training](#ai-property-training) | `integer` | 0 | UINT32_MAX | Required | Read-only | A number which denotes a series of cohesive AI trainings. |
+| [version](#ai-property-version) | `integer` | 0 | UINT32_MAX |Required | Read-only | An AI training version number which starts at 1 and is increased by 1 each time a new training of that AI was done. |
 
 ### AI property `model`
 
@@ -311,9 +311,9 @@ Constraints:
 
 Configuration properties for Bluetooth.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [address](#bluetooth-property-address) | `string` | Required | Read-only | The identifier unique to every bluetooth thing. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [address](#bluetooth-property-address) | `string` | 17 | 17 | Required | Read-only | The identifier unique to every bluetooth thing. |
 
 ### Bluetooth property `address`
 
@@ -330,10 +330,10 @@ Constraints:
 
 Configuration properties for Ethernet.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [ip](#ethernet-property-ip) | `string` \| `null` | Required | Read-only | The IP address assigned to the thing. |
-| [mac](#ethernet-property-mac) | `string` | Required | Read-only | The MAC address of the Ethernet interface. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [ip](#ethernet-property-ip) | `string` \| `null` | 7 | 15 | Required | Read-only | The IP address assigned to the thing. |
+| [mac](#ethernet-property-mac) | `string` | 17 | 17 | Required | Read-only | The MAC address of the Ethernet interface. |
 
 ### Ethernet property `ip`
 
@@ -344,7 +344,8 @@ Existence: Required
 Mutability: Read-only  
 Constraints:  
 
-- Must have a length of exactly 15 characters
+- Must have a length of at least 7 characters
+- Must have a length of at most 15 characters
 
 ### Ethernet property `mac`
 
@@ -361,13 +362,13 @@ Constraints:
 
 Configuration properties for MQTT.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [host](#mqtt-property-host) | `string` \| `null` | Required | Writable | The IP address or DNS resolvable network name of an MQTT broker. |
-| [messages](#mqtt-property-messages) | `array` of `object` [MQTT message](#mqtt-message-object) | Required | Read-only | A list of MQTT messages that the thing either sends or receives. |
-| [password](#mqtt-property-password) | `string` \| `null` | Required | Writable | The MQTT broker password. |
-| [port](#mqtt-property-port) | `integer` \| `null` | Required | Writable | The MQTT broker port. |
-| [username](#mqtt-property-username) | `integer` \| `null` | Required | Writable | The MQTT broker username. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [host](#mqtt-property-host) | `string` \| `null` | 1 | 200 | Required | Writable | The IP address or DNS resolvable network name of an MQTT broker. |
+| [messages](#mqtt-property-messages) | `array` of `object` [MQTT message](#mqtt-message-object) | | | Required | Read-only | A list of MQTT messages that the thing either sends or receives. |
+| [password](#mqtt-property-password) | `string` \| `null` | 1 | 200 |Required | Writable | The MQTT broker password. |
+| [port](#mqtt-property-port) | `integer` \| `null` | 1 | UINT16_MAX | Required | Writable | The MQTT broker port. |
+| [username](#mqtt-property-username) | `string` \| `null` | 1 | 200 | Required | Writable | The MQTT broker username. |
 
 ### MQTT property `host`
 
@@ -409,7 +410,7 @@ Constraints:
 
 The MQTT broker username.  
 
-Type: `integer` | `null`  
+Type: `string` | `null`  
 Existence: Required  
 Mutability: Writable  
 Constraints:  
@@ -422,12 +423,12 @@ Constraints:
 
 Configuration properties for MQTT messages.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [hasPayload](#mqtt-message-property-haspayload) | `boolean` | Required | Read-only | If the MQTT message has a payload. |
-| [name](#mqtt-message-property-name) | `string` | Required | Read-only | An identifying name of the MQTT message. |
-| [topic](#mqtt-message-property-topic) | `string` | Required | Read-only | The topic of the message. |
-| [toThing](#mqtt-message-property-tothing) | `boolean` | Required | Read-only | If the MQTT message is being sent to the thing. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [hasPayload](#mqtt-message-property-haspayload) | `boolean` | | | Required | Read-only | If the MQTT message has a payload. |
+| [name](#mqtt-message-property-name) | `string` | 1 | 30 | Required | Read-only | An identifying name of the MQTT message. |
+| [topic](#mqtt-message-property-topic) | `string` | 1 | 200 | Required | Read-only | The topic of the message. |
+| [toThing](#mqtt-message-property-tothing) | `boolean` | | | Required | Read-only | If the MQTT message is being sent to the thing. |
 
 ### MQTT property `hasPayload`
 
@@ -473,12 +474,11 @@ Mutability: Read-only
 
 Configuration properties for a sensor.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-executed. |
-| [model](#sensor-property-model) | `string` | Required | Read-only | The commercial model name of the sensor. |
-| [port](#sensor-property-port) | `integer` | Required | Read-only | The number of the port the sensor is connected to. |
-| [type](#sensor-property-type) | `string` | Required | Read-only | The type of the sensor. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [model](#sensor-property-model) | `string` | 1 | 200 | Required | Read-only | The commercial model name of the sensor. |
+| [port](#sensor-property-port) | `integer` | 0 | UIN8_MAX | Required | Read-only | The number of the port the sensor is connected to. |
+| [type](#sensor-property-type) | `string` | 1 | 200 | Required | Read-only | The type of the sensor. |
 
 ### Sensor property `model`
 
@@ -519,15 +519,15 @@ Constraints:
 
 Contains system wide settings.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [country](#system-property-country) | `string` | Required | Writable | The ISO 3166-1 alpha-2 country code the thing is operated in. |
-| [firmware](#system-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
-| [firmwareVersion](#system-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
-| [modelName](#system-property-modelname) | `string` | Required | Read-only | The model name of the WWT device. |
-| [modelNumber](#system-property-modelnumber) | `string` | Required | Read-only | The model number of the WWT device. |
-| [serialNumber](#system-property-serialnumber) | `string` | Required | Read-only | The serial number of the WWT device. |
-| [vendor](#system-property-vendor) | `string` | Required | Read-only | The name of the WWT device vendor. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [country](#system-property-country) | `string` | 2 | 2 | Required | Writable | The ISO 3166-1 alpha-2 country code the thing is operated in. |
+| [firmware](#system-property-firmware) | `string` | 1 | 200 |Required | Read-only | The commercial name of a firmware. |
+| [firmwareVersion](#system-property-firmwareversion) | `string` | 5 | 20 | Required | Read-only | The installed version of the firmware. |
+| [modelName](#system-property-modelname) | `string` | 1 | 200 | Required | Read-only | The model name of the WWT device. |
+| [modelNumber](#system-property-modelnumber) | `string` | 1 | 200 |Required | Read-only | The model number of the WWT device. |
+| [serialNumber](#system-property-serialnumber) | `string` | 1 | 200 | Required | Read-only | The serial number of the WWT device. |
+| [vendor](#system-property-vendor) | `string` | 1 | 200 | Required | Read-only | The name of the WWT device vendor. |
 
 ### System property `country`
 
@@ -618,12 +618,12 @@ Constraints:
 
 Configuration properties for WiFi.
 
-| Property | Type | Existence | Mutablity | Description |
-|-|-|-|-|-|
-| [ip](#wifi-property-ip) | `string` \| `null` | Required | Read-only | The IP address assigned to the thing. |
-| [mac](#wifi-property-mac) | `string` | Required | Read-only | The MAC address of the WiFi interface. |
-| [password](#wifi-property-password) | `string` \| `null` | Required | Writable | The password of the WiFi the thing will connect to. |
-| [ssid](#wifi-property-ssid) | `string` \| `null` | Required | Writable | The SSID of the WiFi the thing will connect to. |
+| Property | Type | Min | Max | Existence | Mutablity | Description |
+|-|-|-|-|-|-|-|
+| [ip](#wifi-property-ip) | `string` \| `null` | 7 | 15 |Required | Read-only | The IP address assigned to the thing. |
+| [mac](#wifi-property-mac) | `string` | 17 | 17 | Required | Read-only | The MAC address of the WiFi interface. |
+| [password](#wifi-property-password) | `string` \| `null` | 1 | 63 | Required | Writable | The password of the WiFi the thing will connect to. |
+| [ssid](#wifi-property-ssid) | `string` \| `null` | 1 | 32 |Required | Writable | The SSID of the WiFi the thing will connect to. |
 
 ### WiFi property `ip`
 
@@ -634,7 +634,8 @@ Existence: Required
 Mutability: Read-only  
 Constraints:  
 
-- Must have a length of exactly 15 characters
+- Must have a length of at least 7 characters
+- Must have a length of at most 15 characters
 
 ### WiFi property `mac`
 
