@@ -2,9 +2,21 @@
 
 IoT things have different configuration properties like an identifier, a MAC address or the MQTT broker address. Some of them are writable, others are read-only. This specification aims to standardize their names and possible values.
 
+## General
+
+### Type
+
 The type of each property is defined in regard to the [JSON Schema](https://json-schema.org) standard and its seven [data types](https://json-schema.org/draft/2020-12/json-schema-validation.html#name-type) which are `array`, `boolean`, `integer`, `object`, `null`, `number` or `string`.
 
-## Thing object
+### Existence
+
+Properties might be optional. If they are not set and thus not present in a configration object, it means that the thing does not support the corresponding feature. For example, the property `bluetooth` might be missing in a [thing object](#thing-object), which would mean, that this specific thing does not support bluetooth.
+
+If the thing supports a features but its value is not set, the corresponding configuration property must be present and its value must be `null`. For example, a thing supports WiFi but its SSID is not set yet. The [thing configuration object](#thing-object) must contain the `wifi` property which must have a present [WiFi configuration object](#wifi-object) set as its value. The WiFi configuration object must contain an `ssid` configuration property which must have `null` as its value, as long as the SSID is not set. It must be present though, because the thing supports setting an SSID for its WiFi hardware interface.
+
+## Configuration objects
+
+### Thing object
 
 The core properties available in the root object.
 
@@ -30,7 +42,7 @@ The core properties available in the root object.
 | [system](#core-property-system) | `object` [System](#system-object) | Required | Read-only | Contains system wide settings. |
 | [wifi](#core-property-wifi) | `object` [WiFi](#wifi-object) | Optional | Read-only | WiFi related configuration properties. |
 
-### Thing property `ais`
+#### Thing property `ais`
 
 A list of installed AI's.  
 
@@ -42,7 +54,7 @@ Constraints:
 - Must not be present if empty
 - Must not be null
 
-### Thing property `bluetooth`
+#### Thing property `bluetooth`
 
 Bluetooth related configuration properties.  
 
@@ -54,7 +66,7 @@ Constraints:
 - Must not be present if the thing does not support Bluetooth
 - Must be present if the thing supports Bluetooth
 
-### Thing property `ethernet`
+#### Thing property `ethernet`
 
 Ethernet related configuration properties.  
 
@@ -66,7 +78,7 @@ Constraints:
 - Must not be present if the thing does not support Ethernet
 - Must be present if the thing supports Ethernet
 
-### Thing property `id`
+#### Thing property `id`
 
 The globally unique id of the thing.  
 
@@ -77,7 +89,7 @@ Constraints:
 
 - Must have a length of exactly 5 characters
 
-### Thing property `latitude`
+#### Thing property `latitude`
 
 The latitude the thing is installed at.  
 
@@ -88,7 +100,7 @@ Constraints:
 
 - Must have a value between -90 and 90
 
-### Thing property `location`
+#### Thing property `location`
 
 The name of the location the thing is installed at.  
 
@@ -100,7 +112,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `locationType`
+#### Thing property `locationType`
 
 The type of location the thing is installed at.  
 
@@ -112,7 +124,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `longitude`
+#### Thing property `longitude`
 
 The longitude the thing is installed at.  
 
@@ -123,7 +135,7 @@ Constraints:
 
 - Must have a value between -180 and 180
 
-### Thing property `monitored`
+#### Thing property `monitored`
 
 The identifier of the monitored object.  
 
@@ -135,7 +147,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `monitoredModel`
+#### Thing property `monitoredModel`
 
 The commercial model name of the monitored object.  
 
@@ -147,7 +159,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `monitoredType`
+#### Thing property `monitoredType`
 
 The type of the monitored object.  
 
@@ -159,7 +171,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `mqtt`
+#### Thing property `mqtt`
 
 MQTT related configuration properties.  
 
@@ -171,7 +183,7 @@ Constraints:
 - Must not be present if the thing does not support MQTT
 - Must be present if the thing supports MQTT
 
-### Thing property `name`
+#### Thing property `name`
 
 A name identifying the thing inside an organization.  
 
@@ -183,7 +195,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `organization`
+#### Thing property `organization`
 
 The name of the organization the thing is part of.  
 
@@ -195,7 +207,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `project`
+#### Thing property `project`
 
 The name of the project the thing is part of.  
 
@@ -207,7 +219,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `sensors`
+#### Thing property `sensors`
 
 A list of installed sensors.  
 
@@ -219,7 +231,7 @@ Constraints:
 - Must not be present if empty
 - Must not be null
 
-### Thing property `site`
+#### Thing property `site`
 
 The name of the site the thing is installed at.  
 
@@ -231,7 +243,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Thing property `system`
+#### Thing property `system`
 
 Contains system wide settings.  
 
@@ -239,7 +251,7 @@ Type: `object` [System](#system-object)
 Existence: Required  
 Mutability: Read-only  
 
-### Thing property `wifi`
+#### Thing property `wifi`
 
 WiFi related configuration properties.  
 
@@ -251,7 +263,7 @@ Constraints:
 - Must not be present if the thing does not support WiFi
 - Must be present if the thing supports WiFi
 
-## AI object
+### AI object
 
 Configuration properties for an AI.
 
@@ -262,7 +274,7 @@ Configuration properties for an AI.
 | [training](#ai-property-training) | `integer` | Required | Read-only | A number which denotes a series of cohesive AI trainings. |
 | [version](#ai-property-version) | `integer` | Required | Read-only | An AI training version number which starts at 1 and is increased by 1 each time a new training of that AI was done. |
 
-### AI property `model`
+#### AI property `model`
 
 The commercial model name of the AI.  
 
@@ -274,7 +286,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### AI property `slot`
+#### AI property `slot`
 
 The slot the AI is installed in.  
 
@@ -285,7 +297,7 @@ Constraints:
 
 - Must be an unsigned 8 bit integer
 
-### AI property `training`
+#### AI property `training`
 
 A number which denotes a series of cohesive AI trainings. It needs to be unique regarding the system of numbers it resides in.  
 
@@ -296,7 +308,7 @@ Constraints:
 
 - Must be an unsigned 32 bit integer
 
-### AI property `version`
+#### AI property `version`
 
 An AI training version number which starts at 1 and is increased by 1 each time a new training of that AI was done.  
 
@@ -307,7 +319,7 @@ Constraints:
 
 - Must be an unsigned 32 bit integer
 
-## Bluetooth object
+### Bluetooth object
 
 Configuration properties for Bluetooth.
 
@@ -315,7 +327,7 @@ Configuration properties for Bluetooth.
 |-|-|-|-|-|
 | [address](#bluetooth-property-address) | `string` | Required | Read-only | The identifier unique to every bluetooth thing. |
 
-### Bluetooth property `address`
+#### Bluetooth property `address`
 
 The identifier unique to every bluetooth thing.  
 
@@ -326,7 +338,7 @@ Constraints:
 
 - Must have a length of exactly 17 characters
 
-## Ethernet object
+### Ethernet object
 
 Configuration properties for Ethernet.
 
@@ -335,7 +347,7 @@ Configuration properties for Ethernet.
 | [ip](#ethernet-property-ip) | `string` \| `null` | Required | Read-only | The IP address assigned to the thing. |
 | [mac](#ethernet-property-mac) | `string` | Required | Read-only | The MAC address of the Ethernet interface. |
 
-### Ethernet property `ip`
+#### Ethernet property `ip`
 
 The IP address assigned to the thing.  
 
@@ -346,7 +358,7 @@ Constraints:
 
 - Must have a length of exactly 15 characters
 
-### Ethernet property `mac`
+#### Ethernet property `mac`
 
 The MAC address of the Ethernet interface.  
 
@@ -357,7 +369,7 @@ Constraints:
 
 - Must have a length of exactly 17 characters
 
-## MQTT object
+### MQTT object
 
 Configuration properties for MQTT.
 
@@ -369,7 +381,7 @@ Configuration properties for MQTT.
 | [port](#mqtt-property-port) | `integer` \| `null` | Required | Writable | The MQTT broker port. |
 | [username](#mqtt-property-username) | `integer` \| `null` | Required | Writable | The MQTT broker username. |
 
-### MQTT property `host`
+#### MQTT property `host`
 
 The IP address or DNS resolvable network name of an MQTT broker.  
 
@@ -381,7 +393,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### MQTT property `password`
+#### MQTT property `password`
 
 The MQTT broker password.  
 
@@ -394,7 +406,7 @@ Constraints:
 - Must have a length of at most 200 characters
 - Must be `null` if not set
 
-### MQTT property `port`
+#### MQTT property `port`
 
 The MQTT broker port.  
 
@@ -405,7 +417,7 @@ Constraints:
 
 - Must be an unsigned 16 bit integer
 
-### MQTT property `username`
+#### MQTT property `username`
 
 The MQTT broker username.  
 
@@ -418,7 +430,7 @@ Constraints:
 - Must have a length of at most 200 characters
 - Must be `null` if not set
 
-## MQTT message object
+### MQTT message object
 
 Configuration properties for MQTT messages.
 
@@ -429,7 +441,7 @@ Configuration properties for MQTT messages.
 | [topic](#mqtt-message-property-topic) | `string` | Required | Read-only | The topic of the message. |
 | [toThing](#mqtt-message-property-tothing) | `boolean` | Required | Read-only | If the MQTT message is being sent to the thing. |
 
-### MQTT property `hasPayload`
+#### MQTT property `hasPayload`
 
 If the MQTT message has a payload.  
 
@@ -437,7 +449,7 @@ Type: `boolean`
 Existence: Required  
 Mutability: Read-only  
 
-### MQTT property `name`
+#### MQTT property `name`
 
 An identifying name of the MQTT message.  
 
@@ -449,7 +461,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 30 characters
 
-### MQTT property `topic`
+#### MQTT property `topic`
 
 The topic of the message.  
 
@@ -461,7 +473,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### MQTT property `toThing`
+#### MQTT property `toThing`
 
 If the MQTT message is being sent to the thing.  
 
@@ -469,7 +481,7 @@ Type: `boolean`
 Existence: Required  
 Mutability: Read-only  
 
-## Sensor object
+### Sensor object
 
 Configuration properties for a sensor.
 
@@ -480,7 +492,7 @@ executed. |
 | [port](#sensor-property-port) | `integer` | Required | Read-only | The number of the port the sensor is connected to. |
 | [type](#sensor-property-type) | `string` | Required | Read-only | The type of the sensor. |
 
-### Sensor property `model`
+#### Sensor property `model`
 
 The commercial model name of the sensor.  
 
@@ -492,7 +504,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Sensor property `port`
+#### Sensor property `port`
 
 The number of the port the sensor is connected to.  
 
@@ -503,7 +515,7 @@ Constraints:
 
 - Must be an unsigned 8 bit integer
 
-### Sensor property `type`
+#### Sensor property `type`
 
 The type of the sensor.  
 
@@ -515,7 +527,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-## System object
+### System object
 
 Contains system wide settings.
 
@@ -525,7 +537,7 @@ Contains system wide settings.
 | [firmware](#core-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
 | [firmwareVersion](#core-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
 
-### System property `country`
+#### System property `country`
 
 The ISO 3361-1 alpha-2 country code the thing is operated in.  
 
@@ -537,7 +549,7 @@ Constraints:
 - Must consist of two letters
 - Must be one of the [ISO 3361-1 alpha-2 country code](https://www.iso.org/obp/ui)
 
-### System property `firmware`
+#### System property `firmware`
 
 The commercial name of a firmware.  
 
@@ -549,7 +561,7 @@ Constraints:
 - Must have a length of at least 1 character
 - Must have a length of at most 200 characters
 
-### System property `firmwareVersion`
+#### System property `firmwareVersion`
 
 The installed version of the firmware.  
 
@@ -562,7 +574,7 @@ Constraints:
 - Must have a length of at least 5 characters
 - Must have a length of at most 20 characters
 
-## WiFi object
+### WiFi object
 
 Configuration properties for WiFi.
 
@@ -573,7 +585,7 @@ Configuration properties for WiFi.
 | [password](#wifi-property-password) | `string` \| `null` | Required | Writable | The password of the WiFi the thing will connect to. |
 | [ssid](#wifi-property-ssid) | `string` \| `null` | Required | Writable | The SSID of the WiFi the thing will connect to. |
 
-### WiFi property `ip`
+#### WiFi property `ip`
 
 The IP address assigned to the thing.  
 
@@ -584,7 +596,7 @@ Constraints:
 
 - Must have a length of exactly 15 characters
 
-### WiFi property `mac`
+#### WiFi property `mac`
 
 The MAC address of the WiFi interface.  
 
@@ -595,7 +607,7 @@ Constraints:
 
 - Must have a length of exactly 17 characters
 
-### WiFi property `password`
+#### WiFi property `password`
 
 The password of the WiFi the thing will connect to.  
 
@@ -608,7 +620,7 @@ Constraints:
 - Must have a length of at most 63 characters
 - Must be `null` if not set
 
-### WiFi property `ssid`
+#### WiFi property `ssid`
 
 The SSID of the WiFi the thing will connect to.  
 
