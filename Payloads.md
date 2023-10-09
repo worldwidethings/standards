@@ -11,7 +11,7 @@ This payload contains the complete config of a thing including every mutable and
 
 ### Config JSON payload
 
-The JSON payload is a JSON object which represents the configuration properties of the [thing object](Configuration.md#thing-object).
+The JSON payload is a JSON object which represents the configuration properties of the [thing object](Configuration.md#thing).
 
 ### Config AWS payload
 
@@ -26,7 +26,7 @@ The AWS payload is a JSON object which has the following structure.
 }
 ```
 
-The property `reported` has a [thing object](Configuration.md#thing-object) as its value.
+The property `reported` has a [thing object](Configuration.md#thing) as its value.
 
 ## SetConfig
 
@@ -34,7 +34,7 @@ This payload contains a subset of mutable [thing configuration](Configuration.md
 
 ### SetConfig JSON payload
 
-The JSON payload is a JSON object which represents a subset of mutable configuration properties of the [thing object](Configuration.md#thing-object).
+The JSON payload is a JSON object which represents a subset of mutable configuration properties of the [thing object](Configuration.md#thing).
 
 ### SetConfig AWS payload
 
@@ -49,4 +49,4 @@ The AWS payload is a JSON object which has the following structure.
 }
 ```
 
-The property `desired` has a [thing object](Configuration.md#thing-object) as its value which is composed of a subset of mutable configuration properties.
+The property `desired` has a [thing object](Configuration.md#thing) as its value which is composed of a subset of mutable configuration properties.

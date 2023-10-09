@@ -10,21 +10,21 @@ The type of each property is defined in regard to the [JSON Schema](https://json
 
 ### Existence
 
-Properties might be optional. If they are not set and thus not present in a configration object, it means that the thing does not support the corresponding feature. For example, the property `bluetooth` might be missing in a [thing object](#thing-object), which would mean, that this specific thing does not support bluetooth.
+Properties might be optional. If they are not set and thus not present in a configration object, it means that the thing does not support the corresponding feature. For example, the property `bluetooth` might be missing in a [thing object](#thing), which would mean, that this specific thing does not support bluetooth.
 
-If the thing supports a features but its value is not set, the corresponding configuration property must be present and its value must be `null`. For example, a thing supports WiFi but its SSID is not set yet. The [thing configuration object](#thing-object) must contain the `wifi` property which must have a present [WiFi configuration object](#wifi-object) set as its value. The WiFi configuration object must contain an `ssid` configuration property which must have `null` as its value, as long as the SSID is not set. It must be present though, because the thing supports setting an SSID for its WiFi hardware interface.
+If the thing supports a features but its value is not set, the corresponding configuration property must be present and its value must be `null`. For example, a thing supports WiFi but its SSID is not set yet. The [thing configuration object](#thing) must contain the `wifi` property which must have a present [WiFi configuration object](#wifi) set as its value. The WiFi configuration object must contain an `ssid` configuration property which must have `null` as its value, as long as the SSID is not set. It must be present though, because the thing supports setting an SSID for its WiFi hardware interface.
 
 ## Configuration objects
 
-### Thing object
+### Thing
 
-The core properties available in the root object.
+The configuration properties of a thing.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
-| [ais](#core-property-ais) | `array` of `object` [AI](#ai-object) | Optional | Read-only | A list of installed AI's. |
-| [bluetooth](#core-property-bluetooth) | `object` [Bluetooth](#bluetooth-object) | Optional | Read-only | Bluetooth related configuration properties. |
-| [ethernet](#core-property-ethernet) | `object` [Ethernet](#ethernet-object) | Optional | Read-only | Ethernet related configuration properties. |
+| [ais](#core-property-ais) | `array` of `object` [AI](#ai) | Optional | Read-only | A list of installed AI's. |
+| [bluetooth](#core-property-bluetooth) | `object` [Bluetooth](#bluetooth) | Optional | Read-only | Bluetooth related configuration properties. |
+| [ethernet](#core-property-ethernet) | `object` [Ethernet](#ethernet) | Optional | Read-only | Ethernet related configuration properties. |
 | [id](#core-property-id) | `string` | Required | Read-only | The globally unique id of the thing. |
 | [latitude](#core-property-latitude) | `number` \| `null` | Required | Writable | The latitude the thing is installed at. |
 | [location](#core-property-location) | `string` \| `null` | Required | Writable | The name of the location the thing is installed at. |
@@ -33,20 +33,20 @@ The core properties available in the root object.
 | [monitored](#core-property-monitored) | `string` \| `null` | Required | Writable | The identifier of the monitored object. |
 | [monitoredModel](#core-property-monitoredmodel) | `string` \| `null` | Required | Writable | The commercial model name of the monitored object. |
 | [monitoredType](#core-property-monitoredtype) | `string` \| `null` | Required | Writable | The type of the monitored object. |
-| [mqtt](#core-property-mqtt) | `object` [MQTT](#mqtt-object) | Optional | Read-only | MQTT related configuration properties. |
+| [mqtt](#core-property-mqtt) | `object` [MQTT](#mqtt) | Optional | Read-only | MQTT related configuration properties. |
 | [name](#core-property-name) | `string` \| `null` | Required | Writable | A name identifying the thing inside an organization. |
 | [organization](#core-property-organization) | `string` \| `null` | Required | Writable | The name of the organization the thing is part of. |
 | [project](#core-property-project) | `string` \| `null` | Required | Writable | The name of the project the thing is part of. |
-| [sensors](#core-property-sensors) | `array` of `object` [Sensor](#sensor-object) | Optional | Read-only | A list of installed sensors. |
+| [sensors](#core-property-sensors) | `array` of `object` [Sensor](#sensor) | Optional | Read-only | A list of installed sensors. |
 | [site](#core-property-site) | `string` \| `null` | Required | Writable | The name of the site the thing is installed at. |
-| [system](#core-property-system) | `object` [System](#system-object) | Required | Read-only | Contains system wide settings. |
-| [wifi](#core-property-wifi) | `object` [WiFi](#wifi-object) | Optional | Read-only | WiFi related configuration properties. |
+| [system](#core-property-system) | `object` [System](#system) | Required | Read-only | Contains system wide settings. |
+| [wifi](#core-property-wifi) | `object` [WiFi](#wifi) | Optional | Read-only | WiFi related configuration properties. |
 
 #### Thing property `ais`
 
 A list of installed AI's.  
 
-Type: `array` of `object` [AI](#ai-object)  
+Type: `array` of `object` [AI](#ai)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -58,7 +58,7 @@ Constraints:
 
 Bluetooth related configuration properties.  
 
-Type: `object` [Bluetooth](#bluetooth-object)  
+Type: `object` [Bluetooth](#bluetooth)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -70,7 +70,7 @@ Constraints:
 
 Ethernet related configuration properties.  
 
-Type: `object` [Ethernet](#ethernet-object)  
+Type: `object` [Ethernet](#ethernet)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -175,7 +175,7 @@ Constraints:
 
 MQTT related configuration properties.  
 
-Type: `object` [MQTT](#mqtt-object)  
+Type: `object` [MQTT](#mqtt)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -223,7 +223,7 @@ Constraints:
 
 A list of installed sensors.  
 
-Type: `array` of `object` [Sensor](#sensor-object)  
+Type: `array` of `object` [Sensor](#sensor)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -247,7 +247,7 @@ Constraints:
 
 Contains system wide settings.  
 
-Type: `object` [System](#system-object)  
+Type: `object` [System](#system)  
 Existence: Required  
 Mutability: Read-only  
 
@@ -255,7 +255,7 @@ Mutability: Read-only
 
 WiFi related configuration properties.  
 
-Type: `object` [WiFi](#wifi-object)  
+Type: `object` [WiFi](#wifi)  
 Existence: Optional  
 Mutability: Read-only  
 Constraints:  
@@ -263,7 +263,7 @@ Constraints:
 - Must not be present if the thing does not support WiFi
 - Must be present if the thing supports WiFi
 
-### AI object
+### AI
 
 Configuration properties for an AI.
 
@@ -319,7 +319,7 @@ Constraints:
 
 - Must be an unsigned 32 bit integer
 
-### Bluetooth object
+### Bluetooth
 
 Configuration properties for Bluetooth.
 
@@ -338,7 +338,7 @@ Constraints:
 
 - Must have a length of exactly 17 characters
 
-### Ethernet object
+### Ethernet
 
 Configuration properties for Ethernet.
 
@@ -369,14 +369,14 @@ Constraints:
 
 - Must have a length of exactly 17 characters
 
-### MQTT object
+### MQTT
 
 Configuration properties for MQTT.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
 | [host](#mqtt-property-host) | `string` \| `null` | Required | Writable | The IP address or DNS resolvable network name of an MQTT broker. |
-| [messages](#mqtt-property-messages) | `array` of `object` [MQTT message](#mqtt-message-object) | Required | Read-only | A list of MQTT messages that the thing either sends or receives. |
+| [messages](#mqtt-property-messages) | `array` of `object` [MQTT message](#mqtt-message) | Required | Read-only | A list of MQTT messages that the thing either sends or receives. |
 | [password](#mqtt-property-password) | `string` \| `null` | Required | Writable | The MQTT broker password. |
 | [port](#mqtt-property-port) | `integer` \| `null` | Required | Writable | The MQTT broker port. |
 | [username](#mqtt-property-username) | `integer` \| `null` | Required | Writable | The MQTT broker username. |
@@ -481,7 +481,7 @@ Type: `boolean`
 Existence: Required  
 Mutability: Read-only  
 
-### Sensor object
+### Sensor
 
 Configuration properties for a sensor.
 
@@ -527,7 +527,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### System object
+### System
 
 Contains system wide settings.
 
@@ -574,7 +574,7 @@ Constraints:
 - Must have a length of at least 5 characters
 - Must have a length of at most 20 characters
 
-### WiFi object
+### WiFi
 
 Configuration properties for WiFi.
 
