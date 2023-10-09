@@ -5,3 +5,4 @@ This repository defines standards for IoT devices. The goal to make them compati
 Standards are defined in the following categories. Click on the links for the standard specifications.
 
 - [Configuration](Configuration.md)
+- [Payloads](Payloads.md)
