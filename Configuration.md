@@ -1,4 +1,4 @@
-# Configuration standards
+# Configuration standard
 
 IoT things have different configuration properties like an identifier, a MAC address or the MQTT broker address. Some of them are writable, others are read-only. This specification aims to standardize their names and possible values.
 
