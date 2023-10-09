@@ -7,3 +7,4 @@ Standards are defined in the following categories. Click on the links for the st
 - [Configuration](Configuration.md)
 - [Payload](Payload.md)
 - [Message](Message.md)
+- [MQTT message](Mqtt.md)
