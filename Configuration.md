@@ -4,7 +4,7 @@ IoT things have different configuration properties like an identifier, a MAC add
 
 The type of each property is defined in regard to the [JSON Schema](https://json-schema.org) standard and its seven [data types](https://json-schema.org/draft/2020-12/json-schema-validation.html#name-type) which are `array`, `boolean`, `integer`, `object`, `null`, `number` or `string`.
 
-## Core object
+## Thing object
 
 The core properties available in the root object.
 
@@ -30,7 +30,7 @@ The core properties available in the root object.
 | [system](#core-property-system) | `object` [System](#system-object) | Required | Read-only | Contains system wide settings. |
 | [wifi](#core-property-wifi) | `object` [WiFi](#wifi-object) | Optional | Read-only | WiFi related configuration properties. |
 
-### Core property `ais`
+### Thing property `ais`
 
 A list of installed AI's.  
 
@@ -42,7 +42,7 @@ Constraints:
 - Must not be present if empty
 - Must not be null
 
-### Core property `bluetooth`
+### Thing property `bluetooth`
 
 Bluetooth related configuration properties.  
 
@@ -54,7 +54,7 @@ Constraints:
 - Must not be present if the thing does not support Bluetooth
 - Must be present if the thing supports Bluetooth
 
-### Core property `ethernet`
+### Thing property `ethernet`
 
 Ethernet related configuration properties.  
 
@@ -66,7 +66,7 @@ Constraints:
 - Must not be present if the thing does not support Ethernet
 - Must be present if the thing supports Ethernet
 
-### Core property `id`
+### Thing property `id`
 
 The globally unique id of the thing.  
 
@@ -77,7 +77,7 @@ Constraints:
 
 - Must have a length of exactly 5 characters
 
-### Core property `latitude`
+### Thing property `latitude`
 
 The latitude the thing is installed at.  
 
@@ -88,7 +88,7 @@ Constraints:
 
 - Must have a value between -90 and 90
 
-### Core property `location`
+### Thing property `location`
 
 The name of the location the thing is installed at.  
 
@@ -100,7 +100,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `locationType`
+### Thing property `locationType`
 
 The type of location the thing is installed at.  
 
@@ -112,7 +112,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `longitude`
+### Thing property `longitude`
 
 The longitude the thing is installed at.  
 
@@ -123,7 +123,7 @@ Constraints:
 
 - Must have a value between -180 and 180
 
-### Core property `monitored`
+### Thing property `monitored`
 
 The identifier of the monitored object.  
 
@@ -135,7 +135,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `monitoredModel`
+### Thing property `monitoredModel`
 
 The commercial model name of the monitored object.  
 
@@ -147,7 +147,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `monitoredType`
+### Thing property `monitoredType`
 
 The type of the monitored object.  
 
@@ -159,7 +159,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `mqtt`
+### Thing property `mqtt`
 
 MQTT related configuration properties.  
 
@@ -171,7 +171,7 @@ Constraints:
 - Must not be present if the thing does not support MQTT
 - Must be present if the thing supports MQTT
 
-### Core property `name`
+### Thing property `name`
 
 A name identifying the thing inside an organization.  
 
@@ -183,7 +183,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `organization`
+### Thing property `organization`
 
 The name of the organization the thing is part of.  
 
@@ -195,7 +195,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `project`
+### Thing property `project`
 
 The name of the project the thing is part of.  
 
@@ -207,7 +207,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `sensors`
+### Thing property `sensors`
 
 A list of installed sensors.  
 
@@ -219,7 +219,7 @@ Constraints:
 - Must not be present if empty
 - Must not be null
 
-### Core property `site`
+### Thing property `site`
 
 The name of the site the thing is installed at.  
 
@@ -231,7 +231,7 @@ Constraints:
 - Must have a length of at least 1 characters
 - Must have a length of at most 200 characters
 
-### Core property `system`
+### Thing property `system`
 
 Contains system wide settings.  
 
@@ -239,7 +239,7 @@ Type: `object` [System](#system-object)
 Existence: Required  
 Mutability: Read-only  
 
-### Core property `wifi`
+### Thing property `wifi`
 
 WiFi related configuration properties.  
 
