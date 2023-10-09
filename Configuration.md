@@ -18,7 +18,7 @@ If the thing supports a features but its value is not set, the corresponding con
 
 ### Thing
 
-The configuration properties of a thing.
+The configuration properties of a thing. The contained primitive typed properties serve the purpose of end user properties which can be used to further identify the thing.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
