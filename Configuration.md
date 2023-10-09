@@ -98,7 +98,7 @@ Existence: Required
 Mutability: Writable  
 Constraints:  
 
-- Must have a value between -90 and 90
+- Must have a value between -90.0 and 90.0
 
 #### Thing property `location`
 
@@ -133,7 +133,7 @@ Existence: Required
 Mutability: Writable  
 Constraints:  
 
-- Must have a value between -180 and 180
+- Must have a value between -180.0 and 180.0
 
 #### Thing property `monitored`
 
@@ -356,7 +356,8 @@ Existence: Required
 Mutability: Read-only  
 Constraints:  
 
-- Must have a length of exactly 15 characters
+- Must have a length of at least 7 characters
+- Must have a length of at most 15 characters
 
 #### Ethernet property `mac`
 
@@ -533,13 +534,17 @@ Contains system wide settings.
 
 | Property | Type | Existence | Mutablity | Description |
 |-|-|-|-|-|
-| [country](#core-property-country) | `string` | Required | Writable | The ISO 3361-1 alpha-2 country code the thing is operated in. |
+| [country](#core-property-country) | `string` | Required | Writable | The ISO 3366-1 alpha-2 country code the thing is operated in. |
 | [firmware](#core-property-firmware) | `string` | Required | Read-only | The commercial name of a firmware. |
 | [firmwareVersion](#core-property-firmwareversion) | `string` | Required | Read-only | The installed version of the firmware. |
+| [modelName](#system-property-modelname) | `string` | Required | Read-only | The model name of the thing. |
+| [modelNumber](#system-property-modelnumber) | `string` | Required | Read-only | The model number of the thing. |
+| [serialNumber](#system-property-serialnumber) | `string` | Required | Read-only | The serial number of the thing. |
+| [vendor](#system-property-vendor) | `string` | Required | Read-only | The name of the thing vendor. |
 
 #### System property `country`
 
-The ISO 3361-1 alpha-2 country code the thing is operated in.  
+The ISO 3366-1 alpha-2 country code the thing is operated in.  
 
 Type: `string`  
 Existence: Required  
@@ -547,7 +552,7 @@ Mutability: Writable
 Constraints:  
 
 - Must consist of two letters
-- Must be one of the [ISO 3361-1 alpha-2 country code](https://www.iso.org/obp/ui)
+- Must be one of the [ISO 3366-1 alpha-2 country code](https://www.iso.org/obp/ui)
 
 #### System property `firmware`
 
@@ -574,6 +579,54 @@ Constraints:
 - Must have a length of at least 5 characters
 - Must have a length of at most 20 characters
 
+### System property `modelName`
+
+ The model name of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `modelNumber`
+
+The model number of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `serialNumber`
+
+The serial number of the WWT device.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
+### System property `vendor`
+
+The name of the WWT device vendor.
+
+Type: `string`  
+Existence: Required  
+Mutability: Read-only  
+Constraints:  
+
+- Must have a length of at least 1 character
+- Must have a length of at most 200 characters
+
 ### WiFi
 
 Configuration properties for WiFi.
@@ -594,7 +647,8 @@ Existence: Required
 Mutability: Read-only  
 Constraints:  
 
-- Must have a length of exactly 15 characters
+- Must have a length of at least 7 characters
+- Must have a length of at most 15 characters
 
 #### WiFi property `mac`
 
